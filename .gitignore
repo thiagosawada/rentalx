@@ -1,6 +1,9 @@
 node_modules
 .vscode
 arquivo.csv
-tmp
+tmp/*
+!tmp/.gitkeep
 .env
 coverage
+dist
+ormconfig.json
