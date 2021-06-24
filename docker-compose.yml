@@ -14,18 +14,23 @@ services:
       - PGPORT=5432
     volumes:
       - pgdata:/data/postgres
-  app:
-    build: . # equivale a docker build -t [nome da imagem] .
-    container_name: rentx
+  redis:
+    image: redis:alpine
     ports:
-      - 3333:3333 # mapear a porta 3333 da máquina a 3333 do container
-      - 9229:9229 # porta para usar o debug
-    volumes:
-      - .:/usr/app # mesmo caminho do workdir em Dockerfile
-    links: # faz a ligação entre containers, não pelo IP, mas pelo nome
-      - database
-    depends_on: # informa que a api depende de um serviço de banco de dados
-      - database
+      - 6379:6379
+
+  # app:
+  #   build: . # equivale a docker build -t [nome da imagem] .
+  #   container_name: rentx
+  #   ports:
+  #     - 3333:3333 # mapear a porta 3333 da máquina a 3333 do container
+  #     - 9229:9229 # porta para usar o debug
+  #   volumes:
+  #     - .:/usr/app # mesmo caminho do workdir em Dockerfile
+  #   links: # faz a ligação entre containers, não pelo IP, mas pelo nome
+  #     - database
+  #   depends_on: # informa que a api depende de um serviço de banco de dados
+  #     - database
 
 volumes:
   pgdata:
