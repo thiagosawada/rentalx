@@ -1,3 +1,5 @@
+Car rental API in Node.js, using Express, TypeORM, tsyringe, PostgreSQL, Nodemailer, Handlebars, Jest, Swagger, AWS S3, EC2, PM2, Sentry, Docker and GitHub Actions
+
 ### Car registration
 **FR**
 It must be possible to register a new car.
