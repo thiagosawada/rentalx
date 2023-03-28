@@ -1,88 +1,79 @@
-### Cadastro de carro
+### Car registration
+**FR**
+It must be possible to register a new car.
 
-**RF**
-Deve ser possível cadastrar um novo carro.
+**UC**
+It should not be possible to register a car with an existing license plate.
+The car should be registered with availability by default.
+The user responsible for the registration must be an administrator user.
 
-**RN**
-Não deve ser possível cadastrar um carro com uma placa já existente.
-O carro deve ser cadastrado, por padrão, com disponibilidade.
-O usuário responsável pelo cadastro deve ser um usuário administrador.
+### Car listing
+**FR**
+It must be possible to list all available cars.
+It must be possible to list all available cars by category name.
+It must be possible to list all available cars by brand name.
+It must be possible to list all available cars by car name.
 
+**UC**
+The user does not need to be registered in the system.
 
-### Listagem de carros
+### Car specification registration
+**FR**
+It must be possible to register a specification for a car.
 
-**RF**
-Deve ser possível listar todos os carros disponíveis.
-Deve ser possível listar todos os carros disponíveis pelo nome da categoria.
-Deve ser possível listar todos os carros disponíveis pelo nome da marca.
-Deve ser possível listar todos os carros disponíveis pelo nome da carro.
+**UC**
+It should not be possible to register a specification for an unregistered car.
+It should not be possible to register an existing specification for the same car.
+The user responsible for the registration must be an administrator user.
 
-**RN**
-O usuário não precisa estar cadastrado no sistema
+### Car image registration
+**FR**
+It must be possible to register the car's image.
 
-### Cadastro de especificação na carro
+**NFR**
+Use multer for file uploads.
 
-**RF**
-Deve ser possível cadastrar uma especificação para um carro.
+**UC**
+The user must be able to register more than one image for the same car.
+The user responsible for the registration must be an administrator user.
 
-**RN**
-Não deve ser possível cadastrar uma especificação para um carro não cadastrado.
-Não deve ser possível cadastrar uma especificação já existente para o mesmo carro.
-O usuário responsável pelo cadastro deve ser um usuário administrador.
+### Car rental
+**FR**
+It must be possible to register a rental.
 
-### Cadastro de imagens do carro
+**UC**
+The rental must have a minimum duration of 24 hours.
+It should not be possible to register a new rental if there is already one open for the same user.
+It should not be possible to register a new rental if there is already one open for the same car.
+The user must be logged into the application.
+When renting a car, the car's status must be changed to unavailable.
 
-**RF**
-Deve ser possível cadastrar a imagem do carro.
+### Car return
+**FR**
+It must be possible to return a car.
 
-**RFN**
-Utilizar o multer para upload dos arquivos.
+**UC**
+If the car is returned with less than 24 hours, a full day should be charged.
+When returning, the car should be made available for another rental.
+When returning, the user should be made available for another rental.
+When returning, the total rental amount should be calculated.
+If the return time is later than the scheduled delivery time, a proportional fine should be charged for the delay.
+If there is a fine, it should be added to the total rental amount.
+The user must be logged into the application.
 
-**RN**
-O usuário deve poder cadastrar mais de uma imagem para o mesmo carro.
-O usuário responsável pelo cadastro deve ser um usuário administrador.
+### Listing of rentals for the user
+**FR**
+It must be possible to search for all rentals for the user.
 
-### Aluguel de carro
+**UC**
+The user must be logged into the application.
 
-**RF**
-Deve ser possível cadastrar um aluguel.
+### Password recovery
+**FR**
+It must be possible for the user to recover the password by providing the email.
+The user must receive an email with the steps to recover the password.
+The user must be able to enter a new password.
 
-**RN**
-O aluguel deve ter duração mínima de 24 horas.
-Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.
-Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro.
-O usuário deve estar logado na aplicação.
-Ao realizar um aluguel, o status do carro deverá ser alterado para indisponível.
-
-### Devolução de carro
-
-**RF**
-Deve ser possível realizar a devolução de um carro.
-
-**RN**
-Se o carro for devolvido com menos de 24 horas, deverá ser cobrado diária completa.
-Ao realizar a devolução, o carro deverá ser liberado para outro aluguel.
-Ao realizar a devolução, o usuário deverá ser liberado para outro aluguel.
-Ao realizar a devolução, deverá ser calculado o total do aluguel.
-Caso o horário de devolução seja superior ao horário previsto de entrega, deverá ser cobrado uma multa proporcional aos dias de atraso.
-Caso haja multa, deverá ser somada ao total do aluguel.
-O usuário deve estar logado na aplicação.
-
-### Listagem de alugueis para usuário
-
-**RF**
-Deve ser possível realizar a busca de todos os alugueis para o usuário
-
-**RN**
-O usuário deve estar logado na aplicação
-
-### Recuperar senha
-
-**RF**
-Deve ser possível o usuário recuperar a senha informando o email
-O usuário deve receber um email com o passo a passo para a recuperação da senha
-O usuário deve conseguir inserir uma nova senha
-
-**RN**
-O usuário precisa informar uma nova senha
-O link enviado para a recuperação deve expirar em 3 horas
+**UC**
+The user needs to enter a new password.
+The link sent for recovery must expire in 3 hours.
